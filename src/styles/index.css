@@ -1,8 +1,48 @@
+.pole {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.trafficLight{
+    width: 10px;
+    height: 300px;
+    background-color: #333;
+    margin-top: 20px;
+    position: relative;
+}
+
+.cover {
+    width: 80px;
+    height: 20px;
+    background-color: #333;
+    position: absolute;
+    top: -30px;
+    left: -1px;
+    border-radius: 10px 10px 0 0;
+}
+
+.Lights {
+    background-color: #555;
+    width: 80px;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
 .circle {
-    width: 100px;
-    height: 100px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
-    margin: 50px auto;
+    margin: 10px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: bold;
 }
 
 .red-glow {
@@ -19,10 +59,13 @@
     background-color: green;
     box-shadow: 0 0 10px green;
 }
+
 .purple-glow {
     background-color: purple;
     box-shadow: 0 0 10px purple;
 }
 
-
-
+.button img {
+    width: 30px;
+    height: 30px;
+}
