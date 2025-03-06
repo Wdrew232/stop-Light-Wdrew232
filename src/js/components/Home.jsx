@@ -17,6 +17,12 @@ const Home = () => {
         }
     };
 
+	const Clicked = () => {
+		if (color === "red"){
+			setColor("purple")
+		}
+	};
+
     return (
         <div className="text-center">
             <div className="trafficLight">
@@ -24,10 +30,12 @@ const Home = () => {
                     <div className={`circle ${color === "red" ? "red-glow" : ""}`}></div>
                     <div className={`circle ${color === "yellow" ? "yellow-glow" : ""}`}></div>
                     <div className={`circle ${color === "green" ? "green-glow" : ""}`}></div>
+					<div className={`circle ${color === "red" ? "purple-glow" : ""}`}></div>
                 </div>
-                <button onClick={Click} className="btn bg-primary">
+                <button onClick={Click} onclick={Clicked} className="btn bg-primary">
 					<img src="https://img.icons8.com/?size=60&id=107514&format=png" />
 				</button>
+				
             </div>
         </div>
     );
