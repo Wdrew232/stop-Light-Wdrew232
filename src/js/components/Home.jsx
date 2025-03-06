@@ -18,7 +18,7 @@ const Home = () => {
     };
 
 	const Clicked = () => {
-		if (color === "red"){
+		if (color === "green"){
 			setColor("purple")
 		}
 	};
@@ -30,9 +30,9 @@ const Home = () => {
                     <div className={`circle ${color === "red" ? "red-glow" : ""}`}></div>
                     <div className={`circle ${color === "yellow" ? "yellow-glow" : ""}`}></div>
                     <div className={`circle ${color === "green" ? "green-glow" : ""}`}></div>
-					<div className={`circle ${color === "red" ? "purple-glow" : ""}`}></div>
+					<div className={`circle ${color === "green" ? "purple-glow" : ""}`}></div>
                 </div>
-                <button onClick={Click} onclick={Clicked} className="btn bg-primary">
+                <button onClick={Click} onclick={Clicked} className="btn bg-danger">
 					<img src="https://img.icons8.com/?size=60&id=107514&format=png" />
 				</button>
 				
