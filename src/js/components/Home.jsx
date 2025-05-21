@@ -1,36 +1,43 @@
-import React, { PureComponent, useState } from "react";
+import React, { useState, useEffect } from "react";
 
-// Include images into your bundle
-import rigoImage from "../../img/rigo-baby.jpg";
-
-// Create your first component
 const Home = () => {
     const [color, setColor] = useState("red");
-		
+    const [purpleActive, setPurpleActive] = useState(false);
+    const colors = ["red", "yellow", "green"];
 
-    const Click = () => {
-        if (color === "red") {
-            setColor("yellow");
-        } else if (color === "yellow") {
-            setColor("green");
-        } else if (color === "green") {
-            setColor("purple");
-        } else ( setColor("red"));
-	};
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setColor((prevColor) => {
+                const nextIndex = (colors.indexOf(prevColor) + 1) % colors.length;
+                return colors[nextIndex];
+            });
+        }, 3000);
+
+        return () => clearInterval(interval);
+    }, []);
+
+    const activatePurple = () => {
+        setPurpleActive(!purpleActive);
+    };
+
     return (
-        <div className="pole">
+        <div className="trafficContainer">
+            {/* Main Stoplight */}
+            <div className="pole"></div>
             <div className="trafficLight">
-				<div className="cover"></div>
-					<div className="Lights">
-						<div className={`circle ${color === "red" ? "red-glow" : ""}`}></div>
-						<div className={`circle ${color === "yellow" ? "yellow-glow" : ""}`}></div>
-						<div className={`circle ${color === "green" ? "green-glow" : ""}`}></div>
-						<div className={`circle ${color === "green" ? "purple-glow" : ""}`}></div>
-					</div>
-					<button onClick={Click} className="btn bg-danger">
-						<img src="https://img.icons8.com/?size=60&id=107514&format=png" />
-					</button>
-				
+                <div className="Lights">
+                    {colors.map((c) => (
+                        <div key={c} className={`circle ${color === c ? `${c}-glow` : ""}`}></div>
+                    ))}
+                </div>
+            </div>
+
+            {/* Purple Light Below */}
+            <div className="purpleSection">
+                <div className={`circle ${purpleActive ? "purple-glow" : ""}`}></div>
+                <button onClick={activatePurple} className="btn bg-purple">
+                    Toggle Light
+                </button>
             </div>
         </div>
     );
